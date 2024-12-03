@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Vuforia;
 
 public class Dialog : MonoBehaviour
 {
+
+    
+    
+
     public string[] lines;
     public float speedText;
     public TMP_Text dialogText;
     public int index;
-
+    
 
     public float delay_dialog = 2f;
 
@@ -23,6 +27,19 @@ public class Dialog : MonoBehaviour
 
         NextLine();
     }
+   /* private void Update()
+    {
+        DefaultObserverEventHandler tracker = new DefaultObserverEventHandler();
+        if (tracker.track == true)
+        {
+            Debug.Log(tracker.track);
+            NextLine();
+
+        }
+        else {
+        
+        }
+    }*/
     void StartDialog()
     { 
         dialogText.text = string.Empty;
@@ -50,7 +67,9 @@ public class Dialog : MonoBehaviour
     }
     public void NextLine()
     {
-        if(index>lines.Length-1)
+       
+        
+        if (index>lines.Length-1)
         {
             index++;
             StartDialog();
@@ -62,7 +81,7 @@ public class Dialog : MonoBehaviour
             StartDialog();
             Debug.Log("index<0");
         }
-   
+
     }
 
 }
